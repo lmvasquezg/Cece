@@ -5,33 +5,10 @@
 </head>
 
 <div align="center">
-    <h2 align="center">Conoce a nuestros animales</h2>
-    <p align="center">Seleccione los animales de los cuales desea hacer un comentario</p>
-
-    <textarea mat-input #comment placeholder="Escriba aquí su comentario" id="datos" rows="3" maxlength="150"
-        [(ngModel)]="defaultValue"></textarea>
-    <mat-hint style="font-size: small;">{{comment.value.length}} / 150</mat-hint>
-    <mat-error align="center" *ngIf="(defaultValue!='') && (this.selected.length==0)">
-        Debe seleccionar al menos un animal para realizar el comentario
-    </mat-error>
+    <h2 align="center">Reporte de datos</h2>
+    <p align="center">Aquí encuentras el resumen de los datos obtenidos</p>
 </div>
-
-<div class="wrapper" *ngIf="(this.selected.length!=0) &&(defaultValue!='')">
-    <button class="but" align="center" mat-raised-button [color]="[color]" style="width: min-content;"
-        (click)="btnClick()">{{message1}}</button>
-    <button class="but" align="center" mat-raised-button color="primary"
-        style="width: min-content; display: inline-block; margin-left: 10px; ;" (click)="btnAdd()" *ngIf="show">Añadir
-        otro comentario</button>
-</div>
-
-<body>
-    <div class="gallery">
-
-        <div *ngFor="let image of images;let i = index" [ngClass]="[image.cl]" (click)="submit(i);">
-            <img [src]="[image.url] ">
-        </div>
-    </div>
-</body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
 
 

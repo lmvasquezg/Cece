@@ -1,16 +1,13 @@
-<mat-toolbar style="background-color: rgb(255, 231, 235);" [class.mat-elevation-z2]="true">
+<mat-toolbar style="background-color: rgb(255, 255, 255);" [class.mat-elevation-z2]="true">
 
-  <img width="90" src="/assets/cuteZoo.png">
+  <img width="90" src="/assets/Logo.png">
 
   <span class="fill-remaining-space"></span>
 
   <div *ngIf="this.router.url == '/home'">
     <button mat-raised-button routerLink="/signIn" style="margin-right: 5%;">Iniciar Sesión</button>
-    <button mat-raised-button [matMenuTriggerFor]="menu">Crear Cuenta</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/signUp">Crear cuenta desde cero</button>
-     <!-- <button mat-menu-item routerLink="/signUpGoogle">Crear cuenta con Google</button>-->
-    </mat-menu>
+    <button mat-raised-button  routerLink="/signUp">Crear Cuenta</button>
+    
   </div>
 
   <div *ngIf="this.router.url.includes('/products')">
