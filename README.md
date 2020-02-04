@@ -1,1 +1,2 @@
-# CuteZoo
+# Cece
+Weather consulting tool.
