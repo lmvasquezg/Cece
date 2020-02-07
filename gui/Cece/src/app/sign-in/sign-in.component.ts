@@ -97,20 +97,20 @@ export class SignInComponent implements OnInit {
   }
 
   getUserGoogle(username: string) {
-    const req = this.http.get(`${API_URL}/password/${username}`).subscribe(
-      async res => {
-        if (res != "Usuario no existe") {
-          this.username=username
+    //const req = this.http.get(`${API_URL}/password/${username}`).subscribe(
+      //async res => {
+       // if (res != "Usuario no existe") {
+          //this.username=username
           let url = '/products'//+this.username
           window.open(url, '_self', '', false);
           
           
-        }
-        else {
-          this.openSnackBar("El usuario o contraseña son incorrectos", "Ok");
-        }
-      }
-    )
+      //  }
+        //else {
+       //   this.openSnackBar("El usuario o contraseña son incorrectos", "Ok");
+       // }
+      //}
+    //)
 
   }
 
