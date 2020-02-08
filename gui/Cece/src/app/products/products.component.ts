@@ -15,61 +15,33 @@ export class ProductsComponent implements OnInit {
 
  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private route:ActivatedRoute) {
  }
+ public results: Object;
   
-  input:data[]=[{user:"Luisa",temp:32.6,hum:65,loc:"Medellin",date: new Date("2020-01-06")},{user:"Pachon",temp:32.6,hum:95,loc:"Medellin",date: new Date("2020-08-26")},{user:"Profe",temp:36.6,hum:45,loc:"Miami",date: new Date("2020-04-15")},
-  {user:"Isabela",temp:37.6,hum:45,loc:"San Diego",date: new Date("2020-10-06")},{user:"Lalinde",temp:92.6,hum:45,loc:"Bogota", date: new Date("2020-07-02")},{user:"Michel",temp:2.6,hum:50,loc:"Medellin",date: new Date("2020-05-09")}];
-
+  input:data[]=[]
 
   ngOnInit() {
-    let dataPoints=[]
+    this.getData()
+    
+    
+  }
 
+async getData() {
+   await this.http.get(`${API_URL}/getinfo`).subscribe(data => {
+    this.results = data;
+    let n = data
+    for(let n of data){
+    let val :data = {user:n['user'],temp:n['temp'],hum:n['hum'],loc:n['city'],date:new Date(n['date'])}
+    this.input.push(val)
+  }
+    
     this.renderUsers()
     this.renderLineChart()
     this.renderLocation()
-    
-  }
-    
-  
-
-  
-
-
-
- post(comentario, animales: Array<Number>){
-  
-  const req = this.http.post(`${API_URL}/add_comment`, {
-    //usuario: this.message,
-    product: [JSON.stringify(animales)],
-    comment : comentario
-    
   })
-  .subscribe(
-    res => {
-      if (res == "Comentario agregado exitosamente") {
-        this.openSnackBar("Comentario agregado exitosamente", "OK");
-        
-      }
-      else{
-        this.openSnackBar("No se ha podido agregar el comentario", "Ok");
-      }
-    }
-  )
-}
 
-getData() {
-  const req = this.http.get(`${API_URL}/getinfo`).subscribe(
-    async res => {
-      
-    }
-  )
 }
 
 
-openSnackBar(mensaje: string, action: string) {
-  this._snackBar.open(mensaje, action, {
-    duration: 2000,
-  });
-}
 
 renderUsers(){
   let dataPoints=[]
@@ -93,7 +65,7 @@ renderUsers(){
     },
     data: [{
       type: "pie",
-      showInLegend: true,
+      showInLegend: false,
       toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
       indexLabel: "{name} - #percent%",
       dataPoints: dataPoints
@@ -125,7 +97,7 @@ renderLocation(){
     },
     data: [{
       type: "pie",
-      showInLegend: true,
+      showInLegend: false,
       toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
       indexLabel: "{name} - #percent%",
       dataPoints: dataPoints

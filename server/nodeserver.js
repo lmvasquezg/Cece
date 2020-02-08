@@ -1,3 +1,8 @@
+
+
+
+
+
 var express = require("express");
 var cors = require('cors')
 
@@ -19,20 +24,39 @@ mongoose.Promise = global.Promise;
 
 var url = "mongodb+srv://lmvasquezg:admin@cece-bxu9d.mongodb.net/test?retryWrites=true&w=majority";
 
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(url, { dbName:'Cece',useNewUrlParser: true, useUnifiedTopology: true });
 
 var data = new mongoose.Schema({
-    user: String,
-    temperature: Number,
-    humidity: Number,
-    gps: String
-});
+    MAC: {
+        type: String,
+        required: true
+    },
+    temp: {
+        type: Number,
+        required: true
+    },
+    hum: {
+        type: Number,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    user: {
+        type: String,
+        required: true
+    },
+    date:{
+        type:Date,
+        required:true
+    }
+},{collection:'Data'});
 
-var registry = mongoose.model("Registros", data);
+var registry = mongoose.model("Data", data);
 
 app.post("/add", (req, res) => {
-    // console.log(req.query);
+
     var myData = new registry(req.query);
     myData.save()
         .then(item => {
@@ -43,9 +67,8 @@ app.post("/add", (req, res) => {
         });
 })
 
-app.get("/info", (req, res) => {
-    // res.json("Hello World");
-    console.log("Get ");
+app.get("/getinfo", (req, res) => {    
+    console.log('Get');
     registry.find({}, function(err, result) {
         if (err) throw err;
         if (result) {
@@ -56,4 +79,4 @@ app.get("/info", (req, res) => {
             }))
         }
     });
-})
+});
