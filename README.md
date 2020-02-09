@@ -68,7 +68,7 @@ A pesar de haber trabajado anteriormente con Angular, Node fue completamente nue
 Asimismo, fue la primera vez que usé nuevas librerías en Angular como CanvasJS y se me dificultó el paso de formato obtenido del servidor a los datos usados por la librería para graficar.
 
 **Fundamentos:**
-Si bien tenía bases en programación, el desarrollo web implica el uso de frameworks y herramientas que muchas veces pasan como "caja negra", tecnologías que generan un producto pero muchas veces la documentación no es muy clara de cómo lo hace, por lo que considero que conceptos relacionados con arquitecturas web, desarrollo y frameworks populares son necesarios a la hora de decidir qué usar y básicamente qué buscar para evitar caer en tutoriales o páginas que sobre complican el desarrollo.
+Si bien tenía bases en programación, el desarrollo web implica el uso de frameworks y herramientas que muchas veces pasan como "caja negra", tecnologías que generan un producto pero muchas veces la documentación no es muy clara de cómo lo hace, por lo que considero que conceptos relacionados con arquitecturas web, patrón MVC y WebApps los conozco superficialmente pero se me hace necesario un ahondamiento para tener mas certeza a la hora de desarrollar.
 
 **Habilidades:** Considero que me hacen falta habilidades en arquitectura, seguridad y conectividad especialmente en el lado del back-end para poder realizar una adecuada protección de datos y un paso de mensajes sencillo, seguro y eficiente.
 
@@ -91,4 +91,4 @@ Este comando pondrá a correr el Front-end en el puerto 4200 de su máquina.
 
 Una vez realizados estos pasos podrá usar la aplicación desde su navegador de preferencia.
 
-Disfrute! :)
+Disfrute :)
