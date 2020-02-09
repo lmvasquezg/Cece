@@ -29,12 +29,12 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  user_control = new FormControl('', [Validators.required]);
-  psw_control = new FormControl('', [Validators.required])
+
 
   username = '';
   private password = '';
 
+  //Peticion a google para inicio de sesion
   async signInWithGoogle(): Promise<void> {
     await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then(x => 
@@ -43,6 +43,7 @@ export class SignInComponent implements OnInit {
     this.checkUser('google', this.username, '');
   }
 
+  //Cierre de sesion
   signOut(): void {
     this.authService.signOut();
   }
@@ -53,16 +54,10 @@ export class SignInComponent implements OnInit {
     }
   }
 
-
+  //Reenvio a pagina de reporte de datos
   getUserGoogle(username: string) {
           let url = '/data'//+this.username
           window.open(url, '_self', '', false);
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-    });
   }
 
   

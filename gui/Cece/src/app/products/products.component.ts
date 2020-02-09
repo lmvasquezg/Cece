@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private route:ActivatedRoute) {
  }
  public results: Object;
-  
+  //Arreglos de datos obtenidos de la BD
   input:data[]=[]
 
   ngOnInit() {
@@ -24,22 +24,21 @@ export class ProductsComponent implements OnInit {
   }
 
 async getData() {
+  //Request al servidor
    await this.http.get(`${API_URL}/getinfo`).subscribe(data => {
     this.results = data;
-    let n = data
+    //Iterar y adaptar datos al arreglo para ser graficados
     for(let n of data){
-    let val :data = {user:n['user'],temp:n['temp'],hum:n['hum'],loc:n['city'],date:new Date(n['date'])}
-    this.input.push(val)
-  }
-    
+      let val :data = {user:n['user'],temp:n['temp'],hum:n['hum'],loc:n['city'],date:new Date(n['date'])}
+      this.input.push(val)
+    }
+    //Graficar 3 graficos con sus caracteristicas
     this.renderUsers()
     this.renderLineChart()
     this.renderLocation()
   })
 
 }
-
-
 
 renderUsers(){
   let dataPoints=[]
@@ -53,7 +52,8 @@ renderUsers(){
 
     }
   }
-  
+
+  //Confguracion de graficos
   let chart = new CanvasJS.Chart("chartUsers", {
     theme: "light2",
     animationEnabled: true,
@@ -184,7 +184,3 @@ interface data {
   date?:Date
   
 }
-
-
-
-

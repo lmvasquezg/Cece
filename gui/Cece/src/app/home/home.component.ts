@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
+  //Imagenes y propiedades de la galeria
   imageUrls:(string)[]=['../../assets/slide/5.jpg', '../../assets/slide/3.jpg', '../../assets/slide/4.jpg', '../../assets/slide/2.jpg', '../../assets/slide/7.jpg'];
   height: string = '450px';
   minHeight: string;

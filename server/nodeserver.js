@@ -1,8 +1,4 @@
-
-
-
-
-
+//Importar y configurar express y CORS
 var express = require("express");
 var cors = require('cors')
 
@@ -10,7 +6,6 @@ var app = express();
 var port = 3000;
 
 app.use(cors())
-
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,13 +14,13 @@ app.listen(port, () => {
     console.log("Server listening on port " + port);
 });
 
+//Conexión con MongoDB
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-
 var url = "mongodb+srv://lmvasquezg:admin@cece-bxu9d.mongodb.net/test?retryWrites=true&w=majority";
-
 mongoose.connect(url, { dbName:'Cece',useNewUrlParser: true, useUnifiedTopology: true });
 
+//Especificacioens de datos a recibir y enviar
 var data = new mongoose.Schema({
     MAC: {
         type: String,
@@ -55,8 +50,8 @@ var data = new mongoose.Schema({
 
 var registry = mongoose.model("Data", data);
 
+//Metodo para agregar datos
 app.post("/add", (req, res) => {
-
     var myData = new registry(req.query);
     myData.save()
         .then(item => {
@@ -67,6 +62,7 @@ app.post("/add", (req, res) => {
         });
 })
 
+//Metodo para obtener todos los datos
 app.get("/getinfo", (req, res) => {    
     console.log('Get');
     registry.find({}, function(err, result) {
