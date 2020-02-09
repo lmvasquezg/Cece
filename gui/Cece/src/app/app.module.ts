@@ -27,8 +27,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { SignUpGoogleComponent } from './sign-up-google/sign-up-google.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ProductsComponent } from './products/products.component';
 
@@ -52,8 +50,6 @@ export function provideConfig() {
   declarations: [
     AppComponent,
     HomeComponent,
-    SignUpComponent,
-    SignUpGoogleComponent,
     SignInComponent,
     ProductsComponent
   ],

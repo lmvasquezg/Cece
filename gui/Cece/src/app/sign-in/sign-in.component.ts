@@ -50,68 +50,13 @@ export class SignInComponent implements OnInit {
   async checkUser(type: string, username: string, password: string) {
     if (type == 'google') {
       await this.getUserGoogle(username);
-
-    }
-    else if (type == 'regular') {
-      await this.getUser(username, password);
     }
   }
 
-  signIn() {
-    this.username = (document.getElementById('username') as HTMLInputElement).value;
-    this.password = (document.getElementById('password') as HTMLInputElement).value;
-
-    this.checkUser('regular', this.username, this.password);
-  }
-
-  getErrorMessage(type: string) {
-    switch (type) {
-      case "username":
-        return this.user_control.hasError('required') ? 'Por favor ingrese su nombre de usuario' : '';
-        break;
-      case "password":
-        return this.psw_control.hasError('required') ? 'Por favor ingrese su contraseña' : '';
-        break;
-    }
-  }
-
-  getUser(username: string, password: string) {
-    const req = this.http.get(`${API_URL}/password/${username}`).subscribe(
-      async res => {
-        if (res != "Usuario no existe") {
-          if (password == res) {
-            this.username=username
-            let url = '/products'//+this.username
-            window.open(url, '_self', '', false);
-            
-          }
-          else {
-            this.openSnackBar("El usuario o contraseña son incorrectos", "Ok");
-          }
-        }
-        else {
-          this.openSnackBar("El usuario o contraseña son incorrectos", "Ok");
-        }
-      }
-    )
-  }
 
   getUserGoogle(username: string) {
-    //const req = this.http.get(`${API_URL}/password/${username}`).subscribe(
-      //async res => {
-       // if (res != "Usuario no existe") {
-          //this.username=username
-          let url = '/products'//+this.username
+          let url = '/data'//+this.username
           window.open(url, '_self', '', false);
-          
-          
-      //  }
-        //else {
-       //   this.openSnackBar("El usuario o contraseña son incorrectos", "Ok");
-       // }
-      //}
-    //)
-
   }
 
   openSnackBar(message: string, action: string) {
