@@ -18,13 +18,13 @@ Usualmente, el clima de las ciudades y sus variables relacionadas cambian diaria
 ## Requisitos no funcionales de la aplicación
 
 
-- *Eficiencia*: Toda funcionalidad del sistema debe responder al usuario en menos de 10 segundos
-- Escalabilidad: El sistema debe manejar adecuadamente altos volúmenes de datos.
+- _Eficiencia:_ Toda funcionalidad del sistema debe responder al usuario en menos de 10 segundos
+- _Escalabilidad:_ El sistema debe manejar adecuadamente altos volúmenes de datos.
 -   _Seguridad:_  El sistema debe almacenar el origen de todos los datos de manera que puedan ser rastreados y distinguidos de fuentes fraudulentas
 -  _Usabilidad:_  El sistema debe poseer una interfaz de usuario simple, navegable y entendible a  primera vista.
 -   _Disponibilidad:_  El sistema debe estar disponible 99% del tiempo.
 -   _Extensibilidad:_  El sistema debe pemitir agregar módulos sin necesidad de modificar totalmente el sistema.
-- *Mantenibilidad:* El sistema debe ser fácil de adaptar a las actualizaciones que se presente en sus tecnologías.
+- _Mantenibilidad:_ El sistema debe ser fácil de adaptar a las actualizaciones que se presente en sus tecnologías.
 
 ## Tecnologías
 - Front-end : Se utilizó el framework  [Angular](https://angular.io/)  para desarrollar el frontend, el cual utiliza HTML, CSS y Typescript.
