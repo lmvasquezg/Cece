@@ -52,6 +52,7 @@ var registry = mongoose.model("Data", data);
 
 //Metodo para agregar datos
 app.post("/add", (req, res) => {
+    console.log('Post')
     var myData = new registry(req.query);
     myData.save()
         .then(item => {

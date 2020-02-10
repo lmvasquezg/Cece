@@ -25,17 +25,19 @@ export class ProductsComponent implements OnInit {
 
 async getData() {
   //Request al servidor
-   await this.http.get(`${API_URL}/getinfo`).subscribe(data => {
+   this.http.get(`${API_URL}/getinfo`).subscribe(data => {
     this.results = data;
     //Iterar y adaptar datos al arreglo para ser graficados
-    for(let n of data){
-      let val :data = {user:n['user'],temp:n['temp'],hum:n['hum'],loc:n['city'],date:new Date(n['date'])}
-      this.input.push(val)
-    }
+     for(var n in data) {
+      let val: data = { user: data[n]['user'], temp: data[n]['temp'], hum: data[n]['hum'], loc: data[n]['city'], date: new Date(data[n]['date']) };
+      this.input.push(val);
+    } 
+    
+  
     //Graficar 3 graficos con sus caracteristicas
-    this.renderUsers()
-    this.renderLineChart()
-    this.renderLocation()
+    this.renderUsers();
+    this.renderLineChart();
+    this.renderLocation();
   })
 
 }
