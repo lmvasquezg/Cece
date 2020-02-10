@@ -18,7 +18,7 @@ Usualmente, el clima de las ciudades y sus variables relacionadas cambian diaria
 ## Requisitos no funcionales de la aplicación
 
 
-- *Eficiencia*: Toda funcionalidad del sistema debe responder al usuario en menos de 5 segundos
+- *Eficiencia*: Toda funcionalidad del sistema debe responder al usuario en menos de 10 segundos
 - Escalabilidad: El sistema debe manejar adecuadamente altos volúmenes de datos.
 -   _Seguridad:_  El sistema debe almacenar el origen de todos los datos de manera que puedan ser rastreados y distinguidos de fuentes fraudulentas
 -  _Usabilidad:_  El sistema debe poseer una interfaz de usuario simple, navegable y entendible a  primera vista.
